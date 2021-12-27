@@ -60,5 +60,20 @@ function hourNumberFromHourString(hourtring) {
 };
 
 //Save to local storage
-
+$(".saveBtn").on("click", function() {
+   var dataId = $(this).attr("data-id")
+    var text = $("." + dataId).val();
+    localStorage.setItem(dataId, text)
+displayText()
+});
+function displayText(){
+for (let i = 9; i < 18; i++) {
+    if(localStorage.getItem("text-input" + i)){
+    $(".text-input" + i).val(localStorage.getItem("text-input" + i))
+    }
+  
+    
+}
+}
+displayText()
 });
